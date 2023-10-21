@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 
 export default function Home() {
@@ -9,6 +10,13 @@ export default function Home() {
       Provident quis inventore eos, quaerat quas, aliquid commodi nisi placeat sit, ad quibusdam nihil sed modi et voluptatibus. Ullam aperiam nihil iusto cupiditate eum qui! Nobis ab quasi dolores animi?
       Assumenda, eveniet ad, impedit sed aperiam ex deleniti perferendis optio atque at nam iure asperiores explicabo veniam reprehenderit aliquam eos debitis praesentium? Vero id accusamus ratione, perspiciatis dolores sunt ipsum?
       </p>
+
+      <Link 
+      href='/about' 
+      className='bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded'
+    >
+      Back to Home
+    </Link>
     </div>
   )
 }
