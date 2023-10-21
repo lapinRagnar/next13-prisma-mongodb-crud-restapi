@@ -40,3 +40,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 # le tuto
 https://www.youtube.com/watch?v=KvesFlTVCaI
 
+# prisma commande après modification de la base de données
+
+```
+npx prisma generate
+npx prisma db push
+```
