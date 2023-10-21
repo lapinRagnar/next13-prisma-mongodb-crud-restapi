@@ -46,3 +46,4 @@ https://www.youtube.com/watch?v=KvesFlTVCaI
 npx prisma generate
 npx prisma db push
 ```
+
