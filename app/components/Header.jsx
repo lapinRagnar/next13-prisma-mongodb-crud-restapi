@@ -22,6 +22,11 @@ const Header = () => {
       href: '/about',
       icon: 'FcAbout'
     },
+    {
+      label: 'Post',
+      href: '/posts',
+      icon: 'FcAbout'
+    },
   ]
 
   return (
