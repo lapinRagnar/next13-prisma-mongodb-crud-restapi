@@ -1,10 +1,15 @@
+"use client"
+
 import React from "react"
 import Link from "next/link"
 import { AiOutlineHome } from 'react-icons/ai'
+import { usePathname } from "next/navigation"
 
 
 
 const Header = () => {
+
+  const pathname = usePathname()
 
   const navItems = [
     {
@@ -29,7 +34,7 @@ const Header = () => {
             >
               <Link 
                 href={item.href}
-                className='hover:bg-red-400 hover:text-white p-5 rounded-md opacity-50'
+                className={pathname === `${item.href}` ? 'border-b-5 text-red-500' : ''}
               >
                 {React.createElement(item.icon)} { item.label }
               </Link>
