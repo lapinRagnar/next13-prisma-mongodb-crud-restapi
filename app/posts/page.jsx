@@ -3,6 +3,9 @@ import Link from "next/link"
 const getPostsData = async () => {
     
   const res = await fetch('https://jsonplaceholder.typicode.com/posts')
+
+  await new Promise(resolve => setTimeout(resolve, 2000)) // simulate a network latency
+
   return res.json()
 }
 
