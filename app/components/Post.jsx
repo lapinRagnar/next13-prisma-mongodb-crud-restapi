@@ -12,6 +12,8 @@ const Post = ({post}) => {
   const [openModalEdit, setOpenModalEdit] = useState(false)
   const [postToEdit, setPostToEdit] = useState(post)
 
+  const [openModalDelete, setOpenModalDelete] = useState(false)
+
   const handleEditSubmit = (e) => {
     e.preventDefault()
     console.log("post à modifié", postToEdit)
@@ -28,10 +30,28 @@ const Post = ({post}) => {
       })
   }
 
+
+
   const handleChange = (e) => {
     const name = e.target.name
     const value = e.target.value
     setPostToEdit(prevState => ({...prevState, [name]: value}) )
+  }
+
+
+  const handleDeletePost = (id) => {
+    axios.delete(`/api/posts/${id}`)
+      .then(res => {
+        console.log("j'ai supprimé le post", id, res.data)
+        router.refresh()
+      })
+      .catch(err => {
+        console.log("erreur de suppression", err)
+      })
+      .finally(() => {
+        setOpenModalDelete(false)
+        router.refresh()
+      })
   }
 
   return (
@@ -76,9 +96,31 @@ const Post = ({post}) => {
         </Modal>
 
 
-        <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded cursor-pointer">
+        <button
+          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
+          onClick={() => setOpenModalDelete(true)}    
+        >
           Supprimer
         </button>
+
+        <Modal modalOpen={openModalDelete} setModalOpen={setOpenModalDelete}>
+          <h1 className="text-2xl font-bold pb-3">Voulez-vous vraiment supprimer ce post</h1>
+          <div>
+            <button
+              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded cursor-pointer mr-5"
+              onClick={() => handleDeletePost(post.id)}
+            >
+              Oui
+            </button>
+            <button
+              className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded cursor-pointer mr-5"
+              onClick={() => setOpenModalDelete(false)}  
+            >
+              Non
+            </button>
+          </div>
+        </Modal>
+
       </div>
     </li>
   )

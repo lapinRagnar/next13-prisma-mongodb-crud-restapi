@@ -14,7 +14,6 @@ const AddPost = () => {
   const [inputs, setInputs] = useState({})
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log("mes inputs", inputs)
     axios.post('/api/posts', inputs)
       .then(res => {
         console.log(res)
