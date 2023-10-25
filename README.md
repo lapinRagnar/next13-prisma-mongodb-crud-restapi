@@ -47,3 +47,8 @@ npx prisma generate
 npx prisma db push
 ```
 
+
+# demo - deploiement sur vercel
+https://next13-prisma-mongodb-crud-restapi-ozhrgoyyi.vercel.app/
+
+

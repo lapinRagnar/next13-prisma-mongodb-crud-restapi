@@ -6,7 +6,8 @@ import PostList from "../components/PostList"
 async function getData() {
 
   try {
-    let res = await fetch('http://localhost:3000/api/posts', { cache: 'no-store'})
+    // let res = await fetch('http://localhost:3000/api/posts', { cache: 'no-store'})
+    let res = await fetch('https://next13-prisma-mongodb-crud-restapi-ozhrgoyyi.vercel.app/api/posts', { cache: 'no-store'})
 
     if (!res.ok) {
       throw new Error('echec defetch data')
