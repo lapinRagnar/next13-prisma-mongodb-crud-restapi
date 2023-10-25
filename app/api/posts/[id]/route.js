@@ -68,13 +68,13 @@ export const DELETE = async (request, {params}) => {
     const { id } = params
 
 
-    await prisma.post.findUnique({
+    await prisma.post.delete({
       where : {
         id: id
       }
     })
 
-    return NextResponse.json("post supprime !")
+    return NextResponse.json("post bien supprime !")
 
   } catch (err) {
     return NextResponse.json({message: 'DELETE error', err}, { status: 500 })

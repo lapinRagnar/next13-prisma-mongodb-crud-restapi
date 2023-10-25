@@ -27,6 +27,11 @@ const Header = () => {
       href: '/posts',
       icon: 'FcAbout'
     },
+    {
+      label: 'Crud',
+      href: '/crud',
+      icon: 'FcAbout'
+    },
   ]
 
   return (
